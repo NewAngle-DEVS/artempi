@@ -1,0 +1,80 @@
+/* Scroll is the timeline. Native scrolling remains in control. */
+.hero-journey{position:relative}
+[data-offscreen] *,[data-offscreen] *::before,[data-offscreen] *::after,.page-inactive *,.page-inactive *::before,.page-inactive *::after{animation-play-state:paused!important}
+.presence-story h2>span+br{display:none}
+.scroll-chapter,.scene-timeline,.cinema-lines{display:none}
+.scroll-cinema .hero-journey{height:270svh;min-height:1900px}
+.scroll-cinema .hero{position:sticky;top:0;height:100svh;min-height:720px;max-height:none}
+.scroll-cinema .hero-content{opacity:var(--intro-opacity,1);transform:translate3d(0,var(--intro-y,0px),0);will-change:transform,opacity}
+.scroll-cinema .hero-content[data-inactive]{visibility:hidden;pointer-events:none}
+.scroll-cinema .hero-content[data-inactive] a{pointer-events:none}
+.scroll-cinema .hero-rail{opacity:var(--rail-opacity,1)}
+.scroll-cinema .scroll-chapter{display:block;position:absolute;left:4.5%;top:23%;z-index:2;max-width:49%;opacity:0;visibility:hidden;pointer-events:none;will-change:transform,opacity}
+.scroll-cinema .chapter-listen{opacity:var(--listen-opacity,0);transform:translate3d(0,var(--listen-y,50px),0)}
+.scroll-cinema .chapter-connect{opacity:var(--connect-opacity,0);transform:translate3d(0,var(--connect-y,50px),0)}
+.scroll-cinema .scroll-chapter[data-visible]{visibility:visible}
+.chapter-eyebrow{font:500 10px var(--heading);letter-spacing:3px;color:var(--gold);display:block;margin-bottom:28px}
+.scroll-chapter h2{font-size:clamp(56px,6.4vw,110px);line-height:1.02;letter-spacing:-.065em}
+.scroll-chapter h2 em{color:var(--cream);-webkit-text-stroke:1px var(--cream)}
+.chapter-listen h2 em{color:var(--green);-webkit-text-stroke:0}
+.chapter-connect h2 em{color:var(--gold);-webkit-text-stroke:0}
+.scroll-chapter p{margin-top:20px;font-size:14px;line-height:1.7;color:#bdcbbf;max-width:350px}
+.scroll-cinema .visual-marker{opacity:var(--rail-opacity,1)}
+.scroll-cinema .visual-selector{bottom:155px;opacity:var(--selector-opacity,1)}
+.scroll-cinema .scene-timeline{display:flex;position:absolute;left:4.5%;bottom:112px;gap:24px;z-index:4}
+.scene-timeline button{position:relative;border:0;background:transparent;color:var(--muted);font-size:11px;letter-spacing:.6px;text-align:left;padding:12px 0 16px;min-width:110px;min-height:48px}
+.scene-timeline button>span{color:var(--green);font-size:9px;margin-right:12px}
+.scene-timeline button>i{position:absolute;bottom:0;left:0;width:100%;height:1px;background:#f5eed22b}
+.scene-timeline button>i:after{content:'';display:block;width:100%;height:1px;background:var(--gold);transform:scaleX(var(--scene-fill,0));transform-origin:left}
+.scene-timeline button[aria-pressed=true]{color:var(--cream)}
+.scene-timeline button[aria-pressed=true]>span{color:var(--gold)}
+.scene-timeline button:hover{color:var(--gold)}
+.scroll-cinema .cinema-lines{display:block;position:absolute;inset:0;pointer-events:none;opacity:var(--line-opacity,0);overflow:hidden;z-index:-1}
+.cinema-lines i{position:absolute;left:35%;top:50%;width:85%;height:40%;border:1px solid #ebae2929;border-radius:50%;transform:rotate(var(--ring-angle,-15deg)) scale(var(--ring-scale,1));will-change:transform}
+.cinema-lines i:nth-child(2){top:42%;height:55%;border-color:#589c802b;transform:rotate(calc(var(--ring-angle,-15deg) + 25deg)) scale(var(--ring-scale,1))}
+.cinema-lines i:nth-child(3){top:48%;width:90%;height:48%;border-color:#f5eed21a;transform:rotate(calc(var(--ring-angle,-15deg) - 30deg)) scale(var(--ring-scale,1))}
+.scroll-effects .presence-story{perspective:1200px}
+.scroll-effects .presence-story h2{transform:translate3d(var(--story-shift,0px),0,0);will-change:transform}
+.scroll-effects .presence-story h2>span{color:transparent;-webkit-text-stroke:1px var(--gold);background:linear-gradient(90deg,var(--gold) 0,var(--gold) var(--story-fill,0%),transparent var(--story-fill,0%));background-clip:text;-webkit-background-clip:text}
+.scroll-effects .story-grid{transform:translate3d(0,var(--grid-y,0px),0);inset:-80px 0;will-change:transform}
+.scroll-effects .vision-asterisk{animation:none;transform:rotate(var(--asterisk-angle,0deg))}
+.scroll-effects .ticker>div{animation:none;transform:translate3d(var(--ticker-x,0px),0,0);will-change:transform}
+.scroll-effects .world{transform:perspective(1000px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg));transition:transform 350ms var(--ease);isolation:isolate}
+.scroll-effects .world:after{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--light-x,50%) var(--light-y,30%),#f5eed21c,transparent 60%);opacity:var(--light-on,0);pointer-events:none;transition:opacity .3s}
+.scroll-effects .world .world-art{transform:translate3d(0,var(--art-y,0px),0) scale(1.03);will-change:transform}
+.scroll-effects .world:hover .world-art{transform:translate3d(0,var(--art-y,0px),0) scale(1.08)}
+.scroll-effects .world-copy{transform:translateZ(24px)}
+.button.gold{position:relative;overflow:hidden}
+.button.gold:before{content:'';position:absolute;inset:-100% -30%;background:linear-gradient(110deg,transparent 35%,#fff5 48%,transparent 61%);transform:translateX(-100%);pointer-events:none}
+.button.gold:hover:before{transform:translateX(100%);transition:transform 700ms var(--ease)}
+.scroll-effects .contact-field{transform:rotate(var(--contact-angle,0deg)) scale(var(--contact-scale,1));will-change:transform}
+@media(min-width:761px) and (max-height:760px){.scroll-cinema .hero{min-height:650px;padding-top:115px}.scroll-cinema .hero-content{margin-top:42px}.scroll-cinema .hero h1{font-size:8vw}.scroll-cinema .hero-content>p{margin-top:24px}.scroll-cinema .hero .gold{margin-top:20px;min-height:52px}.scroll-cinema .scroll-chapter{top:26%}.scroll-cinema .scene-timeline{bottom:98px}.scroll-cinema .visual-selector{bottom:110px}.scroll-cinema .hero-bottom{min-height:65px}}
+@media(max-width:1000px) and (min-width:761px){.scene-timeline button{min-width:95px}.scroll-cinema .scene-timeline{gap:16px}.scroll-cinema .visual-selector{bottom:185px}.scroll-chapter h2{font-size:78px}}
+@media(max-width:760px){
+ .scroll-effects .presence-story h2{transform:none;will-change:auto}
+ .scroll-cinema .hero-journey{height:245svh;min-height:1550px}
+ .scroll-cinema .hero{min-height:680px;height:100svh;padding:108px 6% 100px}
+ .scroll-cinema .hero-content{margin-top:28px}
+ .scroll-cinema .hero h1{font-size:clamp(58px,14vw,86px)}
+ .scroll-cinema .hero-content>p{margin-top:16px;font-size:13px;line-height:1.6}
+ .scroll-cinema .hero .gold{min-height:48px;margin-top:20px;padding-left:16px;font-size:11px}
+ .scroll-cinema .hero .arrow{width:36px;height:36px}
+ .scroll-cinema .visual-stage{top:400px;bottom:145px}
+ .scroll-cinema .scroll-chapter{left:6%;right:6%;top:125px;max-width:none}
+ .chapter-eyebrow{font-size:8px;letter-spacing:2px;margin-bottom:16px}
+ .scroll-chapter h2{font-size:clamp(52px,13vw,74px)}
+ .scroll-chapter p{font-size:12px;line-height:1.7;margin-top:16px;max-width:290px}
+ .scroll-cinema .scene-timeline{bottom:82px;left:6%;right:6%;justify-content:space-between;gap:12px}
+ .scene-timeline button{font-size:10px;min-width:0;flex:1;padding-bottom:12px;min-height:44px}
+ .scene-timeline button>span{font-size:8px;margin-right:7px}
+ .scroll-cinema .visual-selector{display:none}
+ .scroll-cinema .visual-marker{display:none}
+ .scroll-cinema .hero-bottom{min-height:64px}
+ .cinema-lines i{left:0;top:55%;width:120%;height:25%}
+ .cinema-lines i:nth-child(2){top:50%;height:35%}
+ .cinema-lines i:nth-child(3){top:55%;height:30%;width:120%}
+ .scroll-effects .world{transform:none}
+}
+@media(max-width:380px){.header .nav-contact{display:none}.header .menu-toggle{margin-left:auto}.scroll-cinema .hero h1{font-size:14vw}.scroll-chapter h2{font-size:13vw}}
+@media(min-width:761px) and (max-width:1100px){.header{gap:18px}.header nav{gap:20px}.nav-contact{gap:12px;padding:12px}.brand{font-size:23px}}
+@media(prefers-reduced-motion:reduce){.scroll-cinema .hero-journey{height:auto;min-height:0}.scroll-cinema .hero{position:relative;height:auto;min-height:830px}.scroll-chapter,.scene-timeline,.cinema-lines{display:none!important}.scroll-cinema .hero-content{opacity:1;transform:none;visibility:visible}.scroll-cinema .hero-content a{pointer-events:auto}.scroll-effects .presence-story h2{transform:none}.scroll-effects .presence-story h2>span{color:var(--gold);background:none}.scroll-effects .world{transform:none}.scroll-effects .world .world-art{transform:none}.button.gold:before{display:none}}
